@@ -1,0 +1,12 @@
+vect <-c(1,2,3,4,5,6,7,8,9)
+print(vect)
+median(vect)
+mode(vect)
+var(vect)
+sd(vect)
+sort(vect, decreasing = T)
+mean(vect)
+products <-c("pineaple", "orange","mango","passion", "strawberry", "watermelon")
+price <-c(20,45,25, 60, 100, 150)
+output <-data.frame(products, price)
+output

@@ -1,0 +1,57 @@
+---
+title: "MyGraphics"
+author: "Anthony"
+date: '`r Sys.Date()`'
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include = TRUE}
+myval <- rnorm(1000, mean = 23.3, sd = 2.3)
+print(myval)
+print("....................................................................")
+val2 <- round(runif(100, 0, 0.1), 2)
+val1 <- round(runif(10, 0, 1), 2)
+myrnom <- rnorm(100, mean = 20, sd = 10)
+par(mfrow = c(3, 3))
+hist(val2, main = "sample size 100", xlab = "myvariance_one", ylab = "mymean_one")
+lines(density(val2))
+hist(val1, main = "sample size 100", xlab = "myvariance_two", ylab = "mymean_two")
+barplot(myval)
+scatter.smooth(val2, main = "scatter plot of sample 100")
+my_exp1 <- rexp(100, rate = 200)
+my_exp2 <- rexp(1000, rate = 500)
+hist(my_exp1, main = "Exponential with sample size 100", xlab = "fisr_exp", ylab = "ycomponent")
+hist(my_exp2, main = "Exponential with sample size 1000", xlab = "fisr_exp", ylab = "ycomponent")
+binorm <- rbinom(10000, 50, 0.5)
+hist(binorm, main = "binomial distribution")
+lines(density(binorm))
+pie(val1, main = "The pie chart")
+curve(sin(2*x), from = 1, to = 5, main = "this is the curve")
+```
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

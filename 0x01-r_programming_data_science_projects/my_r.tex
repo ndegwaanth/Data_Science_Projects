@@ -1,0 +1,338 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Untitled},
+  pdfauthor={p;p},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Untitled}
+\author{p;p}
+\date{2023-10-24}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{myval }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\AttributeTok{mean =} \FloatTok{23.3}\NormalTok{, }\AttributeTok{sd =} \FloatTok{2.3}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(myval)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    [1] 24.95119 24.39193 26.04127 23.34410 22.41536 28.44113 21.97959 20.67861
+##    [9] 20.95552 26.89926 22.81067 22.90447 24.17396 23.46283 21.47751 23.34755
+##   [17] 23.10786 25.94459 21.18574 21.29785 26.66378 27.49857 21.01685 25.48054
+##   [25] 22.09358 21.50289 22.29090 28.16583 25.91399 23.66244 22.92909 23.89299
+##   [33] 22.99619 21.82149 25.25201 20.09073 22.02000 24.66243 25.16440 23.98105
+##   [41] 25.16044 24.22388 28.39860 23.12058 21.02772 21.58166 23.78717 21.42127
+##   [49] 23.54598 25.20439 21.88015 22.65260 19.50514 23.71136 19.28498 25.44959
+##   [57] 24.74190 20.98292 22.20807 26.06820 28.07652 25.28977 25.01465 24.47458
+##   [65] 29.14631 20.73733 23.23175 23.48560 21.38537 21.06226 17.86976 25.06250
+##   [73] 25.88954 19.80925 25.11758 26.74076 22.75035 22.55051 22.29352 20.88981
+##   [81] 27.77879 28.88647 27.22127 17.14734 24.50655 17.29828 21.34796 26.57731
+##   [89] 24.77618 24.67798 24.64379 17.59327 27.22621 19.85212 24.96169 23.34377
+##   [97] 19.62670 26.52798 24.32701 24.96606 20.28326 20.87283 20.11912 26.07610
+##  [105] 22.85937 23.40278 21.29495 22.01702 24.84785 19.68001 25.11745 21.82641
+##  [113] 19.99075 25.79228 24.16377 23.78965 26.55559 23.52377 19.62347 26.74301
+##  [121] 20.67437 22.08470 22.28731 24.19622 25.86495 19.81620 22.58051 23.95585
+##  [129] 26.49306 22.85370 23.24404 24.80182 21.85770 24.32489 27.19998 21.63192
+##  [137] 24.16041 23.86539 25.69756 16.18505 24.59353 22.67803 26.45050 24.48031
+##  [145] 23.84124 23.42865 24.00560 25.27463 22.92497 23.83342 22.80724 24.40453
+##  [153] 25.33102 22.59935 25.94003 23.26585 17.84223 26.02370 22.30641 23.61288
+##  [161] 23.67192 26.43125 26.27027 19.80723 23.79322 23.96297 24.32792 24.02316
+##  [169] 19.67843 22.87600 25.99184 23.14036 20.68541 23.56621 27.91941 24.66532
+##  [177] 23.55548 22.83251 24.69839 23.63850 24.50523 25.71124 23.26123 25.78823
+##  [185] 25.02743 22.33192 22.66445 25.91289 21.15911 22.02584 24.38931 25.03753
+##  [193] 23.23658 24.61747 23.01748 26.31297 24.44718 21.06439 22.14080 21.97477
+##  [201] 25.96120 24.11456 25.63853 22.11365 24.65397 23.62960 25.72854 24.53345
+##  [209] 27.40488 22.09353 24.23005 22.43179 23.55931 23.53879 23.61829 20.70273
+##  [217] 20.77247 20.49138 27.14788 28.70381 21.12504 17.98298 23.57141 23.33804
+##  [225] 24.58117 27.12839 24.35023 25.36102 21.47934 20.23762 23.33729 20.70327
+##  [233] 23.53378 25.43411 21.44505 23.17722 23.19095 21.61227 22.68147 21.49330
+##  [241] 21.90047 19.56800 29.65731 25.85114 20.65068 24.47151 24.04176 25.04660
+##  [249] 23.24930 25.53890 29.06324 30.58381 18.61545 24.31287 23.47741 22.96558
+##  [257] 23.24038 22.51146 20.75203 26.51881 17.89463 19.47618 27.06919 29.00785
+##  [265] 22.72951 22.95431 22.11049 21.70765 25.94136 24.01552 17.83203 27.58994
+##  [273] 24.85229 20.73140 19.26306 24.25712 26.01243 21.82930 21.94986 25.92950
+##  [281] 21.45829 23.04646 28.16449 23.18255 19.93668 24.21130 21.45899 20.18474
+##  [289] 23.23585 22.87354 24.92620 25.67001 23.23382 23.92268 24.35849 23.00764
+##  [297] 23.72230 21.79315 25.53870 25.38941 24.16532 22.44354 19.72961 20.82931
+##  [305] 24.60744 24.92715 24.21763 21.34539 24.14414 23.25030 21.57729 23.70295
+##  [313] 23.04003 22.70646 22.56180 24.40410 20.79464 22.55188 24.98843 21.81360
+##  [321] 27.35949 23.37777 28.03028 22.21077 24.86702 22.00183 22.60549 26.30810
+##  [329] 23.21670 24.53158 19.76865 25.33276 22.92863 19.46652 24.40988 23.71411
+##  [337] 20.55120 24.18079 22.36580 27.83096 21.55565 23.18335 21.97427 25.73365
+##  [345] 21.39368 21.86536 25.56673 22.74665 25.08245 21.80273 26.45365 22.81118
+##  [353] 24.95813 24.14896 23.00183 26.31068 28.06007 23.05580 21.24252 22.12128
+##  [361] 24.34746 28.18272 26.99960 29.00322 26.19346 19.72394 21.83900 25.37430
+##  [369] 23.67808 26.20174 24.98161 23.97579 22.69477 27.25837 21.14880 25.37169
+##  [377] 25.75697 23.89085 21.43330 18.28887 25.21083 24.46943 22.61936 20.86788
+##  [385] 27.74710 24.29875 21.91158 23.30983 22.69389 18.74043 22.39556 21.66496
+##  [393] 23.26475 28.13388 25.72919 22.30065 20.34840 20.51061 21.75104 24.34375
+##  [401] 27.38811 23.98358 23.79398 23.85506 25.01800 27.47731 25.24567 22.23278
+##  [409] 23.81177 23.14752 24.78159 26.07499 21.96792 22.52412 25.93338 20.53038
+##  [417] 28.11948 28.13905 21.93379 24.23113 24.33556 25.47655 24.99547 20.43379
+##  [425] 24.32977 22.31216 24.38395 23.78699 22.23341 22.93669 23.04910 22.44335
+##  [433] 24.01655 25.21094 21.44328 25.37452 20.83945 23.72537 23.16663 22.80358
+##  [441] 22.78339 22.74455 22.77778 25.47587 22.37662 25.63824 24.66227 22.49759
+##  [449] 23.27240 22.69238 21.59884 26.56921 23.93701 22.42431 26.73918 24.18997
+##  [457] 19.87424 22.25522 26.22192 19.63922 22.79288 21.87890 28.42574 18.75061
+##  [465] 26.21208 22.13889 20.29442 22.81260 21.77066 22.64689 22.73479 23.69362
+##  [473] 21.88935 21.72685 27.78259 19.92984 22.32338 18.36207 22.48907 26.73496
+##  [481] 24.49159 24.55589 22.78497 27.13740 16.87824 21.94690 24.54415 20.68333
+##  [489] 22.88296 26.39057 18.87411 26.75800 26.24068 22.20734 28.01091 24.99628
+##  [497] 25.71527 22.62368 18.39267 27.65881 24.95731 22.79266 28.01501 25.19713
+##  [505] 20.67436 20.76359 21.27925 21.88558 25.73754 25.03559 21.14824 24.58675
+##  [513] 21.27503 23.11223 22.22116 24.32203 24.38711 23.44147 23.97560 24.22974
+##  [521] 20.82454 19.60666 27.16230 24.24219 24.35218 24.11902 21.47581 26.80754
+##  [529] 23.75266 22.29819 19.92959 25.03559 19.83001 25.00477 19.73421 25.55041
+##  [537] 21.48808 25.13863 22.51223 22.82251 18.33109 22.62374 24.28783 22.50174
+##  [545] 19.67333 24.29313 22.11996 22.41140 23.98582 23.62074 24.40467 23.68704
+##  [553] 23.45203 23.91184 24.26407 22.67963 26.41034 22.23481 21.81492 22.87579
+##  [561] 21.92107 20.98953 24.55346 26.90827 22.40820 26.64348 25.04796 24.51684
+##  [569] 20.83546 22.61350 26.07216 26.99772 22.33921 21.70075 21.42561 24.30707
+##  [577] 25.61551 21.22446 22.41271 23.84127 22.20112 24.32143 20.60752 22.80526
+##  [585] 26.06396 23.56017 22.82627 20.02223 22.76097 21.22015 22.61591 21.69238
+##  [593] 23.51444 22.76548 21.75859 24.32069 22.92666 24.04969 24.18585 25.90781
+##  [601] 23.44732 24.15277 20.65428 20.89998 20.62302 23.15192 24.82662 21.81028
+##  [609] 26.01592 23.80151 23.78946 25.11894 25.25682 26.68950 29.43805 24.78906
+##  [617] 20.87248 24.70006 22.10270 23.42084 24.18982 20.26440 23.84744 27.93725
+##  [625] 20.71746 22.03606 19.59787 17.60138 20.36439 23.96128 22.85752 23.60189
+##  [633] 23.06626 21.76623 21.61190 27.01079 19.94439 23.09503 26.29068 23.30405
+##  [641] 22.62133 25.09448 23.27129 24.20545 20.80057 24.43735 23.05591 22.23293
+##  [649] 23.82864 23.04789 22.61392 19.71235 24.75451 22.98116 20.70013 19.32803
+##  [657] 25.23576 22.78299 22.36629 23.01203 22.53988 22.50303 24.79355 27.09508
+##  [665] 24.89360 24.06792 18.89897 27.63014 24.00612 26.96768 25.93391 23.71916
+##  [673] 21.32424 22.40867 23.64614 20.33587 20.88993 20.48912 26.65863 27.05613
+##  [681] 27.65839 25.50868 25.32407 25.28104 18.87145 27.97020 26.11262 24.88745
+##  [689] 23.26291 21.83781 23.32091 23.38574 19.35037 24.65449 23.91378 22.85120
+##  [697] 21.21617 22.06987 20.32854 23.63894 20.56446 25.81080 26.53052 23.29786
+##  [705] 23.34854 23.34157 23.00278 25.09395 21.99480 27.68502 22.64315 24.22576
+##  [713] 22.14706 26.10416 23.99957 22.79865 23.57367 21.19826 25.14901 21.84756
+##  [721] 20.67638 20.94558 20.31340 25.64191 20.03541 22.95476 23.52971 18.38550
+##  [729] 24.85730 17.87707 23.48742 23.64911 23.23812 19.18400 25.71958 22.89196
+##  [737] 17.95893 20.03704 26.22272 23.37162 20.13779 27.63237 25.24598 26.43895
+##  [745] 22.04055 24.00275 20.72614 21.99184 22.53380 21.08533 19.54367 21.44120
+##  [753] 21.63696 20.11753 20.80086 22.64576 22.65720 24.17300 25.07547 21.10775
+##  [761] 21.80269 22.55131 23.63575 28.12577 20.02784 20.26812 23.25353 23.41619
+##  [769] 24.87079 19.98269 23.29451 20.73350 19.45046 25.56505 24.55718 23.99549
+##  [777] 22.27861 19.64766 18.55661 18.91541 22.75085 24.38286 28.30578 22.34888
+##  [785] 25.47864 25.09718 27.50521 26.96766 23.81131 23.61734 24.64919 23.71995
+##  [793] 19.28586 26.25701 19.21598 21.38720 26.10908 24.36196 22.36987 25.87505
+##  [801] 24.26272 22.98017 21.60386 28.86678 23.23432 22.73497 21.49450 25.94252
+##  [809] 24.36756 20.60036 24.31680 25.38990 22.45455 24.69377 19.61874 23.18070
+##  [817] 25.53089 24.98940 22.23054 23.31540 22.78706 29.64770 24.77517 24.15512
+##  [825] 25.08934 25.78831 23.92960 24.82425 23.24289 24.35413 22.67384 24.04241
+##  [833] 20.78575 28.12239 24.49939 21.56142 23.18255 25.96011 25.39061 19.81367
+##  [841] 19.84255 22.74121 26.89589 21.04655 20.42996 23.74938 24.50621 20.82631
+##  [849] 22.97986 25.97727 24.84801 24.29141 22.03380 19.62945 23.74545 26.16684
+##  [857] 24.65430 27.07223 23.33597 22.54669 22.36986 22.04995 22.45936 22.39800
+##  [865] 24.23614 22.43422 21.89564 23.40542 26.73001 25.29525 23.36475 23.46480
+##  [873] 22.46254 22.11307 18.96139 22.00090 23.41884 21.02846 21.05279 22.28709
+##  [881] 24.01770 24.20492 25.54984 22.85033 16.51803 26.02868 21.66593 22.73656
+##  [889] 23.08317 23.72195 24.49830 22.65774 24.94772 26.29955 23.24461 22.23331
+##  [897] 24.47223 29.51702 22.07054 17.70410 21.03874 26.81085 25.14740 25.00052
+##  [905] 24.68030 24.37577 21.81041 21.52030 20.99246 24.28571 24.28027 23.87599
+##  [913] 24.26648 25.18449 22.27085 28.82184 19.74392 19.77849 24.90045 21.19955
+##  [921] 17.93428 24.73125 23.67160 23.01749 23.19554 22.07397 24.62106 22.74751
+##  [929] 23.60527 27.57072 27.35338 24.52586 22.54011 23.66590 27.00973 26.70442
+##  [937] 25.64591 18.61560 22.62954 22.99187 20.50327 22.94496 26.44236 26.24475
+##  [945] 23.11972 25.11588 22.57708 25.15351 22.45911 23.48353 24.70877 20.05617
+##  [953] 22.11709 21.07487 21.56926 27.02589 24.33941 24.24973 20.78312 22.76979
+##  [961] 20.85251 26.31493 23.28131 19.04180 22.45626 24.37037 22.40719 27.14993
+##  [969] 27.78972 25.49696 25.19210 21.32236 24.72896 26.66668 21.88478 25.50529
+##  [977] 23.37825 21.84145 23.70080 23.37262 19.55839 26.45657 20.79396 24.40507
+##  [985] 25.69335 19.43684 19.47954 18.47501 23.80350 22.76865 22.64271 27.17517
+##  [993] 24.31694 23.20457 26.07779 23.90976 24.45331 21.43467 22.29092 23.32985
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\StringTok{"...................................................................."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "...................................................................."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{val2 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.1}\NormalTok{), }\DecValTok{2}\NormalTok{)}
+\NormalTok{val1 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DecValTok{2}\NormalTok{)}
+\NormalTok{myrnom }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{, }\AttributeTok{mean =} \DecValTok{20}\NormalTok{, }\AttributeTok{sd =} \DecValTok{10}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(val2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] 0.01 0.03 0.04 0.09 0.02 0.03 0.10 0.03 0.07 0.06 0.03 0.00 0.05 0.03 0.06
+##  [16] 0.06 0.05 0.01 0.07 0.02 0.10 0.03 0.01 0.01 0.04 0.01 0.08 0.08 0.02 0.03
+##  [31] 0.08 0.08 0.07 0.05 0.05 0.01 0.02 0.09 0.07 0.10 0.01 0.08 0.05 0.05 0.09
+##  [46] 0.05 0.01 0.00 0.03 0.06 0.01 0.06 0.07 0.08 0.09 0.04 0.06 0.05 0.06 0.04
+##  [61] 0.08 0.09 0.03 0.05 0.06 0.03 0.03 0.07 0.07 0.01 0.05 0.08 0.10 0.09 0.01
+##  [76] 0.10 0.07 0.07 0.05 0.09 0.05 0.06 0.02 0.06 0.00 0.05 0.02 0.02 0.05 0.02
+##  [91] 0.04 0.03 0.06 0.04 0.05 0.03 0.02 0.03 0.02 0.05
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(val2, }\AttributeTok{main =} \StringTok{"sample size 100"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"myvariance\_one"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"mymean\_one"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(val2))}
+\FunctionTok{hist}\NormalTok{(val1, }\AttributeTok{main =} \StringTok{"sample size 100"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"myvariance\_two"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"mymean\_two"}\NormalTok{)}
+\FunctionTok{barplot}\NormalTok{(myval)}
+\FunctionTok{scatter.smooth}\NormalTok{(val2, }\AttributeTok{main =} \StringTok{"scatter plot of sample 100"}\NormalTok{)}
+\NormalTok{my\_exp1 }\OtherTok{\textless{}{-}} \FunctionTok{rexp}\NormalTok{(}\DecValTok{100}\NormalTok{, }\AttributeTok{rate =} \DecValTok{200}\NormalTok{)}
+\NormalTok{my\_exp2 }\OtherTok{\textless{}{-}} \FunctionTok{rexp}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\AttributeTok{rate =} \DecValTok{500}\NormalTok{)}
+\FunctionTok{hist}\NormalTok{(my\_exp1, }\AttributeTok{main =} \StringTok{"Exponential with sample size 100"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"fisr\_exp"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"ycomponent"}\NormalTok{)}
+\FunctionTok{hist}\NormalTok{(my\_exp2, }\AttributeTok{main =} \StringTok{"Exponential with sample size 1000"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"fisr\_exp"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"ycomponent"}\NormalTok{)}
+\NormalTok{binorm }\OtherTok{\textless{}{-}} \FunctionTok{rbinom}\NormalTok{(}\DecValTok{10000}\NormalTok{, }\DecValTok{50}\NormalTok{, }\FloatTok{0.5}\NormalTok{)}
+\FunctionTok{hist}\NormalTok{(binorm, }\AttributeTok{main =} \StringTok{"binomial distribution"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(binorm))}
+\FunctionTok{pie}\NormalTok{(val1, }\AttributeTok{main =} \StringTok{"The pie chart"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{my_r_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\hypertarget{r-markdown}{%
+\subsection{R Markdown}\label{r-markdown}}
+
+This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see \url{http://rmarkdown.rstudio.com}.
+
+When you click the \textbf{Knit} button a document will be generated
+that includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(cars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+\end{verbatim}
+
+\hypertarget{including-plots}{%
+\subsection{Including Plots}\label{including-plots}}
+
+You can also embed plots, for example:
+
+\includegraphics{my_r_files/figure-latex/pressure-1.pdf}
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+\end{document}

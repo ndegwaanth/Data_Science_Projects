@@ -1,0 +1,58 @@
+---
+title: "latest-assignment"
+author: "Anthony"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+SampleHeartDisease <- data.frame(
+  Biking = c(30.8, 65.12, 1.95, 44.80, 69.42, 54.40, 49.05, 4.78, 65.73, 35.25, 51.82),
+  Smoking = c(10.89, 2.21, 17.58, 2.80, 15.97, 29.33, 9.06, 12.83, 11.99, 23.27, 14.43),
+  Heart.disease = c(11.76, 2.85, 17.17, 6.81, 4.06, 9.55, 7.62, 15.85, 3.06, 12.09, 6.43)
+)
+attach(SampleHeartDisease)
+# the program below is used to test the difference btwn the Biking and the smoking
+# and Smoking and Heart Disease
+library(dplyr)
+t.test(SampleHeartDisease %>% select(1), SampleHeartDisease %>% select(2)) -> test_biking_and_smoking
+print("The t test between the biking raw data and the smoking raw data is given below: \n")
+print(test_biking_and_smoking)
+t.test(SampleHeartDisease %>% select(2), SampleHeartDisease %>% select(3)) -> test_smoking_and_heart_disease
+print("The t test between the smoking and the heart disease is given below:\n")
+print(test_smoking_and_heart_disease)
+# This program is use to find the confidence interval for the variable
+# heart disease
+confident_interval_heart_disease <- t.test(SampleHeartDisease %>% select(3), conf.level = 0.05)
+print(confident_interval_heart_disease)
+
+##this program is us to plot the above data to show the relation in 
+## between the variable
+library(ggplot2)
+par(mfrow = c(2,2))
+ggplot(SampleHeartDisease, aes(x=Biking, y=Smoking)) + geom_line() #+ labs(title = "this is the relationship between Biking and Smoking", x = Biking, y = Smoking)
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

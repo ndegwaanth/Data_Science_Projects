@@ -1,0 +1,11 @@
+mydata <- read.csv("/home/anthony/Documents/datasheets/heart.data.csv")
+summary(mydata)
+library(dplyr)
+#myModel <- lm(mydata$heart.disease - mydata$biking + mydata$smoking, data = mydata)
+#Model <- lm(mydata %>%select(heart.disease) - mydata%>%select(biking) + mydata%>%select(smoking), rdata = mydata)
+myModel <- lm(heart.disease ~ biking + smoking, data = mydata)
+myResidual <- residuals(myModel)
+myResidual
+shapiro.test(myResidual)
+library(regclass)
+VIF(myModel)
