@@ -1,8 +1,3 @@
-# This forlder holds all the projects done in the field of data science using
-*Python Programming
-#!/usr/bin/env Python3
-
-
 from matplotlib import pyplot as plt
 import numpy as np
 
@@ -13,10 +8,6 @@ plt.hist(a, bins=[0,20,40,60,80,100])
 plt.hist(b, bins=[0,10,15,20,25,30])
 plt.title("Histogram")
 plt.show()
-
-
-
-
 
 x = np.arange(0, 3*np.pi, 0.1)
 y = np.sin(x)
