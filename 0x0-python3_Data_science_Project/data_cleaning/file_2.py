@@ -1,5 +1,7 @@
 import numpy as np
-import  pandas as pd
+import pandas as pd
+import matplotlib.pyplot as plt
+
 from nltk.classify.scikitlearn import SklearnClassifier
 from sklearn import metrics
 
@@ -26,3 +28,9 @@ support data aggregation
 
 new_data = pd.read_csv('delaney_solubility_with_descriptors.csv')
 print(new_data)
+
+# data columns include
+# MolLogP MolWt  NumRotatableBonds  AromaticProportion   logS
+
+fig, vis = plt.subplot(2, 4, 6)
+vis[new_data['MolWt', 'NumRotatableBonds']].plot()
