@@ -1,84 +1,84 @@
 import numpy as np
-import  pandas as pd
+import pandas as pd
 from pandas import RangeIndex
-#
-# # creating an array with numpy
-# data = np.array([[1,4], [2,5],[3,6]])
-#
-# #creating a dataframe with pandas
-# # index is used to define the the rows
-# # columns used to name the columns
-# dh = pd.DataFrame(data, index=['row1', 'row2', 'row3'], columns=['col1', 'col2'])
-#
-# # lists of data
-# states = ['Kenya', 'Uganda', 'Tanzania', 'Somalia']
-# population = [50000000, 40000000, 30000000, 20000000]
-#
-# # sorting the lists within a dictionary
-# dict_states = {'States':states, 'Population':population}
-#
-# # creating the dataframe
-# df_population = pd.DataFrame(dict_states)
-#
+
+# creating an array with numpy
+data = np.array([[1,4], [2,5],[3,6]])
+
+# creating a dataframe with pandas
+# index is used to define the rows
+# columns used to name the columns
+dh = pd.DataFrame(data, index=['row1', 'row2', 'row3'], columns=['col1', 'col2'])
+
+# lists of data
+states = ['Kenya', 'Uganda', 'Tanzania', 'Somalia']
+population = [50000000, 40000000, 30000000, 20000000]
+
+# sorting the lists within a dictionary
+dict_states = {'States':states, 'Population':population}
+
+# creating the dataframe
+df_population = pd.DataFrame(dict_states)
+
 # # reading the csv file
 data_2 = pd.read_csv('NBA_2021.csv')
-#
-# #showing the first 5 rows in a dataframe
-# data_2.head()
-#
-# # showing the last 5 rows in a dataframe
-# data_2.tail()
-#
-# # showing the last n rows in a dataframe
-# data_2.head(20)
-# #showing the first 20 rows starting from the last
-# data_2.tail(704)
-#
-# #getting the shape attribute
-# # the first one is the number f rows and the second is the number of column
-# data_2.shape
-#
-# # display the n rows
-# data_3 = pd.set_option('display.max_rows', 700)
-#
-# # getting the index attribute
-# data_2.index
-#
-# #getting the column attribute
-# data_2.columns
-#
-# #getting the data type of each colums
-# data_2.dtypes
-# type(data_2)
-#
-# #showing the info of the dataframe
-# data_2.info()
-#
-# # describing the basic statistics of the dataframe
-# data_2.describe()
-#
-# # obtaining the highest index of the dataframe
-# max(data_2.index)
-#
-# # obtaining the lowest index of the dataframe
-# min(data_2.index)
-#
- # #roundin the data in 2 decimal place
-# round(data_2, 2)
-#
-# print(data_2)
-#
-# # select a column with []
-# print(data_2['Player'])
-#
-# # check the data type of a column
-# print(type(data_2['Player']))
-#
-# # selecting a column with '.'
-# print(data_2.Player)
+
+# showing the first 5 rows in a dataframe
+data_2.head()
+
+# showing the last 5 rows in a dataframe
+data_2.tail()
+
+# showing the last n rows in a dataframe
+data_2.head(20)
+# showing the first 20 rows starting from the last
+data_2.tail(704)
+
+# getting the shape attribute
+# the first one is the number f rows and the second is the number of column
+data_2.shape
+
+# display the n rows
+data_3 = pd.set_option('display.max_rows', 700)
+
+# getting the index attribute
+data_2.index
+
+# getting the column attribute
+data_2.columns
+
+# getting the data type of each colums
+data_2.dtypes
+type(data_2)
+
+# showing the info of the dataframe
+data_2.info()
+
+# describing the basic statistics of the dataframe
+data_2.describe()
+
+# obtaining the highest index of the dataframe
+max(data_2.index)
+
+# obtaining the lowest index of the dataframe
+min(data_2.index)
+
+# roundin the data in 2 decimal place
+round(data_2, 2)
+
+print(data_2)
+
+# select a column with []
+print(data_2['Player'])
+
+# check the data type of a column
+print(type(data_2['Player']))
+
+# selecting a column with '.'
+print(data_2.Player)
 
 # selecting 2 column s using [[]]
-# print(data_2[['Player', 'FGA']])
+print(data_2[['Player', 'FGA']])
 
 # check out the data types of the selection
 print(data_2.columns)
@@ -89,7 +89,7 @@ print(data_2[['DRB', 'TRB', 'AST', 'STL', 'BLK']])
 data_4 = data_2[['DRB', 'TRB', 'AST', 'STL', 'BLK']]
 
 # adding new colum to dataframe
-# data_4['language'] = 'kikuyu'
+data_4['language'] = 'kikuyu'
 
 # create an array of 704 elements
 language_s = np.arange(0, 705)
