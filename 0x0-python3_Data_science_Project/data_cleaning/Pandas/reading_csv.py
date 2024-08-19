@@ -47,10 +47,10 @@ print(dh.second)
 using loc and iloc for slicing the data 
 """
 # using loc
+print(dh.loc['a':'d',:])
 print('using loc in slicing the data ==> dh')
 print(dh.loc[:, 'first':'second'])
 print('extracting data using the row index')
-print(dh.loc['a':'d',:])
 
 # using iloc function
 print('using iloc in slicing the data ==> dh')
@@ -58,7 +58,8 @@ print(dh.iloc[1:4])
 print(dh.iloc[1:3, 1:4])
 
 """
-To extract a single element in the dataframe i can use 
+To 
+extract a single element in the dataframe i can use 
 at and iat
 """
 # usint iat
