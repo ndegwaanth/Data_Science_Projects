@@ -7,7 +7,7 @@ print(df)
 dh = pd.read_csv('data/weather-nominal-weka.csv')
 print('The stock_price data: dh')
 print(dh)
-dp = pd.read_csv('data/stock_price.csv')
+dp = pd.read_csv('../Data_science_visualization/stock_price.csv')
 print("Stock price data")
 print(dp)
 
