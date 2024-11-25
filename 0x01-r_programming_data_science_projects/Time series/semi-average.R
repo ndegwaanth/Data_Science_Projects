@@ -45,3 +45,5 @@ legend("topleft", legend = c("Actual Sales", "Trend Line", "Future Predictions")
 # Display predicted values for future years
 data.frame(Year = future_years, Predicted_Sales = future_trend)
 
+
+library(forecast)

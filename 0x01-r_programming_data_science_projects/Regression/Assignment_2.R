@@ -1,0 +1,130 @@
+library(forecast)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(lmtest)
+
+# Reading the dataset
+df <- read.csv("/home/anthony/data_science/Data_Science_Projects/0x01-r_programming_data_science_projects/Regression/BMI-Data.csv")
+
+# increasing the view of the plot in an interactive way
+X11(width = 8, height = 10)
+
+# layout of the plots
+par(mfrow= c(2,2))
+
+# sum of all the na in the dataframe
+sum(is.na(df))
+
+# Checking the data type og weight and bmi
+typeof(df$Weight)
+typeof(df$Bmi)
+
+# Converting the character or string data type to numetic
+df$Weight <- as.numeric(df$Weight)
+df$Bmi <- as.numeric(df$Bmi)
+
+# Filing the missing value with the mean of the column
+df <- df %>% replace_na(list(Weight = mean(df$Weight, na.rm=TRUE)))
+df <- df %>% replace_na(list(Bmi = mean(df$Bmi, na.rm=TRUE)))
+
+# removing the not a number na or nan
+df <- na.omit(df)
+
+y = df$Bmi
+
+# model <- lm(y ~ Age + Weight + Height, data = df)
+model <- lm(y ~ Weight, data = df)
+
+# getting the statistics of the model
+summary(model)
+
+# converting the weight data into a data frame in order to predict the future
+predict_value <- data.frame(Weight=200)
+
+# Making the prediction of weight = 200
+prediction <- predict(model, newdata = predict_value)
+
+# display the prediction of bmi when weight == 200
+print(prediction)
+
+#Residual are the difference btw the predicted value with the actual value
+# getting the residual from the model
+model_residual <- residuals(model)
+
+# Display the residual of the model
+print(model_residual)
+
+#QQ-plot helps to decipher whether the residual are normaly distributed
+#Ploting a QQ-plot
+qqnorm(model_residual, main='QQ plot of the residual')
+
+# adding an abline to the plot to act as a reference line
+qqline(model_residual, col='red', lwd=2)
+
+# checking for normality an going to use shaporo test
+shapiro.test(model_residual)
+
+# model assumptions
+# a) Linearity
+
+plot(fitted(model), model_residual, xlab = "Fitted model", ylab = "Residuals",
+     main="Residuls vs fitted values")
+
+abline(h=0, col='blue', lty=2)
+
+# b) Independence by using durbin watson
+
+dwtest(model)
+
+
+# c) Homoscedasticity by using breusch pagan test
+
+plot(model, which = 3)
+bptest(model)
+
+
+# Quiz9
+# Describe how R can be used to optimize parameter estimation using maximum likelihood estimation method 
+# (Refer to maximum likelihood estimation notes upload in lecture 2)
+
+# Step 1
+# Simulating some data from a normal distribution
+set.seed(42)
+x <- rnorm(100, mean = 5, sd = 2)  # Mean = 5, SD = 2
+
+# Step 2
+# Defining the negative likelihood function
+negative_log_likelihood <- function(params) {
+  # mean
+  mu <- params[1]
+  # Standard deviation
+  sigma <- params[2]
+  
+  # Making sure that the sigma is positive
+  if (sigma <= 0){
+    return(Inf)
+  }
+  
+  # computation of the negative log likelihood
+  nil <- sum(dnorm(x, mean = mu, sd = sigma, log = TRUE))
+  
+  return(nil)
+}
+
+# Step 3
+# Optimize the parameter using Optim()
+
+initial_params <- c(mu = 0, sigma = 1)
+result <- optim(par = initial_params, fn = negative_log_likelihood,
+                method = "L-BFGS-B",
+                lower = c(-Inf, 1e-6))
+
+#Extracting the estimated parameter
+estimated_mu <- result$par[1]
+estimated_sigma <- result$par[2]
+
+
+# Display of the the esimated mean
+cat("The estimated mean (mu) is: ", estimated_mu, "\n")
+cat("The estimated standard deviation(sigma) is: ", estimated_sigma)
